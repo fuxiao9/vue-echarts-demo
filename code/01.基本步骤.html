@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../lib/echarts.js"></script>
+  </head>
+  <body>
+    <div id="main" style="width: 500px; height: 500px"></div>
+
+    <script>
+      const myEchart = echarts.init(document.getElementById("main"));
+
+      let options = {
+        xAxis: {
+          type: "category",  // 类目轴
+          data: ["小明", "小红", "小花"],
+        },
+        yAxis: {
+          type: "value",  // 数值轴
+        },
+        series: [
+          {
+            type: "bar",
+            data: [30, 40, 50],
+          },
+        ],
+      };
+
+      myEchart.setOption(options);
+    </script>
+  </body>
+</html>
