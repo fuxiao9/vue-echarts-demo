@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="../lib/echarts.js"></script>
   </head>
+
   <body>
     <div id="main" style="width: 500px; height: 500px"></div>
 
@@ -14,16 +15,32 @@
       const myEchart = echarts.init(document.getElementById("main"));
 
       let options = {
+        // 图标标题
+        title: {
+          show: true,
+          text: "语文成绩表",
+        },
+        // 提示框
+        tooltip: {
+          show: true,
+          trigger: "item", // 触发类型
+          triggerOn: "mousemove", // 触发的事件
+          formatter: "{a}<br />{b}的成绩是{c}", // 内容格式器
+        },
+        // x轴
         xAxis: {
           type: "category", // 类目轴
           data: ["小明", "小红", "小花", "小蓝", "小吕", "小飞", "小李"],
         },
+        // y轴
         yAxis: {
           type: "value", // 数值轴
         },
+        //
         series: [
           {
             type: "bar",
+            name: "语文",
             /* 最大值和最小值 */
             markPoint: {
               data: [
