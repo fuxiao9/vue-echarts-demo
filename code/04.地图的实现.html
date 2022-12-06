@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../lib/echarts.js"></script>
+    <script src="../lib/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="main" style="width: 600px; height: 500px"></div>
+
+    <script>
+      const myEchart = echarts.init(document.getElementById("main"));
+
+      axios.get("http://127.0.0.1:5500/code/map/china.json").then((res) => {
+        // console.log(res.data, "res");
+        // 注册矢量地图数据
+        echarts.registerMap("chinaMap", res.data);
+
+        let options = {
+          geo: {
+            type: "map",
+            map: "chinaMap", // 值与注册的值一致
+            roam: true, // 设置允许缩放和拖动
+            label: {
+              show: true, // 展示标签
+            },
+            zoom: 2, // 设置初始化的缩放比例
+            center: [87.617733, 43.792818], // 设置地图中心点的坐标
+          },
+        };
+
+        myEchart.setOption(options);
+      });
+    </script>
+  </body>
+</html>
