@@ -154,27 +154,27 @@ export default {
 
     // 当浏览器大小发生改变时候，会调用的方法，来完成屏幕的适配
     screenAdapter() {
-      const tilteFontSize = (this.$refs.sellerRef.offsetWidth / 100) * 3.6;
+      const titleFontSize = (this.$refs.sellerRef.offsetWidth / 100) * 3.6;
 
       const adapterOption = {
         title: {
           textStyle: {
-            fontSize: tilteFontSize,
+            fontSize: titleFontSize,
           },
         },
         tooltip: {
           trigger: "axis",
           axisPointer: {
             lineStyle: {
-              width: tilteFontSize,
+              width: titleFontSize,
             },
           },
         },
         series: [
           {
-            barWidth: tilteFontSize,
+            barWidth: titleFontSize,
             itemStyle: {
-              borderRadius: [0, tilteFontSize / 2, tilteFontSize / 2, 0],
+              borderRadius: [0, titleFontSize / 2, titleFontSize / 2, 0],
             },
           },
         ],
@@ -195,11 +195,11 @@ export default {
     });
   },
 
- beforeDestroy () {
+  beforeDestroy() {
     clearInterval(this.timerId);
-    window.removeEventListener("resize", () => {  
-      this.screenAdapter()
-    })
+    window.removeEventListener("resize", () => {
+      this.screenAdapter();
+    });
   },
 };
 </script>
