@@ -5,5 +5,6 @@ module.exports = defineConfig({
     host: "localhost",
     port: 8889,
     open: true,
-  }
+  },
+  lintOnSave: false
 });

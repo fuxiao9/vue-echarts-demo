@@ -1,3 +1,10 @@
-const routes = []
+const SellerPage = () => import("@/views/SellerPage");
 
-export default routes
+const routes = [
+  {
+    path: "/seller",
+    component: SellerPage,
+  },
+];
+
+export default routes;
